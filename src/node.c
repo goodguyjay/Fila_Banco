@@ -20,7 +20,7 @@ void enqueue(Queue* queue, const char* name, const unsigned int id)
 {
     Node* newNode = (Node*)malloc(sizeof(Node));
 
-    // verifica se a alocação foi bem sucedida
+    // verifica se a alocação foi bem-sucedida
     if (newNode == NULL)
     {
         printf("Erro ao alocar memória.\n");
@@ -46,7 +46,9 @@ void enqueue(Queue* queue, const char* name, const unsigned int id)
         queue->rear = newNode;
     }
 
+    puts("<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<");
     printf("Nova pessoa para ser atendida: %s (ID: %d)\n", name, id);
+    puts("<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<");
 }
 
 void dequeue(Queue* queue)
@@ -68,7 +70,9 @@ void dequeue(Queue* queue)
         queue->rear = NULL;
     }
 
+    puts("<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<");
     printf("Pessoa atendida: %s (ID: %d)\n", temp->name, temp->id);
+    puts("<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<");
     free(temp);
 }
 
@@ -81,13 +85,14 @@ void displayQueue(const Queue* queue)
     }
 
     Node* temp = queue->front;
-
+    puts("<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<");
     // percorre a fila e exibe os clientes
     while (temp != NULL)
     {
         printf("Nome: %s (ID: %d)\n", temp->name, temp->id);
         temp = temp->next;
     }
+    puts("<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<");
 }
 
 void freeQueue(Queue* queue)
@@ -113,7 +118,9 @@ void displayFront(const Queue* queue)
         return;
     }
 
+    puts("<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<");
     printf("Primeira pessoa da fila: %s (ID: %d)\n", queue->front->name, queue->front->id);
+    puts("<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<");
 }
 
 void displayRear(const Queue* queue)
@@ -124,7 +131,9 @@ void displayRear(const Queue* queue)
         return;
     }
 
+    puts("<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<");
     printf("Última pessoa da fila: %s (ID: %d)\n", queue->rear->name, queue->rear->id);
+    puts("<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<");
 }
 
 void isEmpty(const Queue* queue)
@@ -151,10 +160,12 @@ void size(const Queue* queue)
         temp = temp->next;
     }
 
+    puts("<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<");
     printf("Tamanho da fila: %d\n", count);
+    puts("<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<");
 }
 
-void displayAt(const Queue* queue, const unsigned int position)
+void displayAt(const Queue* queue, unsigned int position)
 {
     if (queue->front == NULL)
     {
@@ -164,6 +175,9 @@ void displayAt(const Queue* queue, const unsigned int position)
 
     int count = 0;
     Node* temp = queue->front;
+
+    // gambiarra favor nao mexer 
+    position--;
 
     // percorre a fila até a posição desejada
     while (temp != NULL && count < position)
@@ -178,6 +192,10 @@ void displayAt(const Queue* queue, const unsigned int position)
     }
     else
     {
+        // gambiarra favor nao mexer
+        position++;
+        puts("<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<");
         printf("Pessoa na posição %d: %s (ID: %d)\n", position, temp->name, temp->id);
+        puts("<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<");
     }
 }

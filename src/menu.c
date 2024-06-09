@@ -10,6 +10,9 @@
 
 void clearInputBuffer(void)
 {
+    
+	// arriscado...
+	// limpa o buffer de entrada
 	while (getchar() != '\n');
 }
 
@@ -78,6 +81,10 @@ int optionChooser(const Menu *menu, Queue *queue)
             size(queue);
             return EXIT_SUCCESS;
 
+		case CLEAR_QUEUE:
+            freeQueue(queue);
+            return EXIT_SUCCESS;
+
         default:
             perror("Escolha inválida. Tente novamente.");
             return EXIT_FAILURE;
@@ -95,22 +102,24 @@ void displayMainMenu(Menu *menu, Queue *queue)
         puts("5. Exibir último da fila\n");
         puts("6. Exibir fila a partir de uma posição\n");
         puts("7. Exibir tamanho da fila\n");
+        puts("8. Limpar toda a fila [ADMINISTRADOR]");
         puts("0. Sair\n");
         puts("<------------------------------------>\n");
         puts("Escolha uma opção: ");
 
+        // seta a escolha do menu
         setMenuChoice(menu);
         if (getMenuChoice(menu) == 0) return;
 
-        if (getMenuChoice(menu) < 0 || getMenuChoice(menu) > 7)
+        if (getMenuChoice(menu) < 0 || getMenuChoice(menu) > 8)
         {
             puts("Opção inválida. Tente novamente.\n");
             // função recursiva pra chamar o menu novamente
             displayMainMenu(menu, queue);
         }
 
+        // chama a função que executa a opção escolhida
         optionChooser(menu, queue);
 
-        //clearScreen();
     } while (getMenuChoice(menu) != 0);
 }
