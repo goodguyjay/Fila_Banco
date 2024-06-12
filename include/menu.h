@@ -17,8 +17,7 @@ enum MenuChoice
     DISPLAY_AT = 6,
     DISPLAY_SIZE = 7,
     CLEAR_QUEUE = 8,
-    ENQUEUE_FIRST = 9,
-    ENQUEUE_LAST = 10
+    ENQUEUE_FIRST = 9
 };
 
 typedef struct Menu

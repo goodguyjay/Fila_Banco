@@ -143,7 +143,7 @@ void displayMainMenu(Menu* menu, Queue* queue)
 		setMenuChoice(menu);
 		if (getMenuChoice(menu) == 0) return;
 
-		if (getMenuChoice(menu) < 0 || getMenuChoice(menu) > 10)
+		if (getMenuChoice(menu) < 0 || getMenuChoice(menu) > 9)
 		{
 			puts("Opção inválida. Tente novamente.\n");
 			// função recursiva pra chamar o menu novamente
