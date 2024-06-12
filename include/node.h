@@ -27,6 +27,12 @@ void initializeQueue(Queue* queue);
 // adicionar a fila:
 void enqueue(Queue* queue, const char* name, unsigned int id);
 
+// adicionar a fila em uma posição específica:
+void enqueueLast(Queue* queue, const char* name, unsigned int id);
+
+// remover da fila em uma posição específica:
+void enqueueFirst(Queue* queue, const char* name, unsigned int id);
+
 // remover da fila:
 void dequeue(Queue* queue);
 
